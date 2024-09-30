@@ -78,7 +78,7 @@ Request Body
 ```json
 {
     "url": "https://allgrow-labo.jp",
-    "Keywords": ['keyword 1', 'keyword 2']
+    "Keywords": ["keyword 1", "keyword 2"]
 }
 ```
 
