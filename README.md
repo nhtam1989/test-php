@@ -41,5 +41,4 @@ CREATE TABLE `SearchResult`(
 ## ER Diagram
 
 [Nhấp vào đây để xem sơ đồ](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed)
-
-![Mô tả hình ảnh]([https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed](https://drive.google.com/file/d/1dcnrH_BVSu9OSkpqQaRlheik35fMYOwb/view?usp=drive_link))
+ ![Wireframe Example](https://drive.google.com/file/d/1dcnrH_BVSu9OSkpqQaRlheik35fMYOwb/view?usp=drive_link)
