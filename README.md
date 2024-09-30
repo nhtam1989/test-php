@@ -40,5 +40,12 @@ CREATE TABLE `SearchResult`(
 
 ## ER Diagram
 
-[Nhấp vào đây để xem sơ đồ](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed)
+<!-- [Nhấp vào đây để xem sơ đồ](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed) -->
 ![Wireframe Example](diagram_sql.png)
+
+## API Endpoints
+
+### API List
+| HTTP Method | Endpoint      | Description |
+|-------------|---------------|------------|
+| POST        | /api/rankings | 2          | 
