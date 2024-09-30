@@ -43,9 +43,66 @@ CREATE TABLE `SearchResult`(
 <!-- [Nhấp vào đây để xem sơ đồ](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed) -->
 ![Wireframe Example](diagram_sql.png)
 
+
+### Example Database
+
+### Url Table
+| id | url                      |  createdAt |
+|----|-------                   |-------------|
+| 1  | https://allgrow-labo.jp  | 2024-09-30 10:07:15 | 
+
+### Keywords Table
+| id | url_id | keyword   |  createdAt |
+|----|------- |---------  |-------------|
+| 1  | 1      | keyword 1 | 2024-09-30 10:07:15 | 
+| 2  | 1      | keyword 2 | 2024-09-30 10:07:15 | 
+
+### SearchResult Table
+| id | keyword_id | search_engine | rank        | search_results | createdAt |
+|----|-------     |-------------  |------       |-------------   |-------------|
+| 1  | 1          | Google        | 1           | 500            | 2024-09-30 10:07:15 | 
+| 2  | 1          | Yahoo         | 10          | 200            | 2024-09-30 10:07:15 | 
+| 3  | 2          | Google        | 6           | 300            | 2024-09-30 10:07:15 | 
+| 4  | 2          | Yahoo         | out of rank | 100            | 2024-09-30 10:07:15 | 
+
+--- 
+
 ## API Endpoints
 
 ### API List
-| HTTP Method | Endpoint      | Description |
-|-------------|---------------|------------|
-| POST        | /api/rankings | 2          | 
+| HTTP Method | Endpoint      | Content-Type |
+|-------------|---------------|-------------|
+| POST        | /api/v1/search-ranking | Content-Type : application/json | 
+
+Request Body
+```json
+{
+    "url": "https://allgrow-labo.jp",
+    "Keywords": ['keyword 1', 'keyword 2']
+}
+```
+
+Response
+```json
+
+{
+    "url": "https://allgrow-labo.jp",
+    "keywords": [
+        {
+            "keyword": "keyword 1",
+            "google_rank": 1,
+            "google_results": 500,
+            "yahoo_rank": 10,
+            "yahoo_results": 200
+        },
+        {
+            "keyword": "keyword 2",
+            "google_rank": 6,
+            "google_results": 300,
+            "yahoo_rank": "out of rank",
+            "yahoo_results": 100
+        }
+    ]
+}
+
+```
