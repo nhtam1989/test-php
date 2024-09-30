@@ -19,7 +19,7 @@ We will design a database with 3 tables :
     - `keywords`: List of keywords associated with the URL (max 5).
     - `created_at`: Timestamp of when the keywords were added.
     - `updated_at`: Timestamp of the last update.
-    
+```
 CREATE TABLE `Url`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `url` VARCHAR(255) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `SearchResult`(
     `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT `search_result_keyword_id_foreign` FOREIGN KEY (`keyword_id`) REFERENCES `Keywords` (`id`)
 );
-
+```
 
 ## ER Diagram
 ![Mô tả hình ảnh](link-đến-hình-ảnh)
