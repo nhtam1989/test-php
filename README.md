@@ -39,4 +39,7 @@ CREATE TABLE `SearchResult`(
 ```
 
 ## ER Diagram
+
+[Nhấp vào đây để xem sơ đồ](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed)
+
 ![Mô tả hình ảnh](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed)
