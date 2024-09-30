@@ -15,28 +15,28 @@ We will design a database with 3 tables :
 
 ```sql
 CREATE TABLE `Url`(
-    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
     `url` VARCHAR(255) NOT NULL,
     `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE `Keywords`(
-    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `url_id` BIGINT NOT NULL,
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `url_id` INT NOT NULL,
     `keyword` VARCHAR(100) NOT NULL,
     `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT `keywords_url_id_foreign` FOREIGN KEY (`url_id`) REFERENCES `Url` (`id`)
+    CONSTRAINT `keywords_url_id_fk` FOREIGN KEY (`url_id`) REFERENCES `Url` (`id`)
 );
 
 CREATE TABLE `SearchResult`(
-    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `keyword_id` BIGINT NOT NULL,
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `keyword_id` INT NOT NULL,
     `search_engine` VARCHAR(10) NOT NULL COMMENT 'Google/Yahoo',
     `rank` VARCHAR(100) NOT NULL DEFAULT 'out of rank',
     `search_results` BIGINT NOT NULL,
     `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT `search_result_keyword_id_foreign` FOREIGN KEY (`keyword_id`) REFERENCES `Keywords` (`id`)
+    CONSTRAINT `search_result_keyword_id_fk` FOREIGN KEY (`keyword_id`) REFERENCES `Keywords` (`id`)
 );
 ```
 
 ## ER Diagram
-![Mô tả hình ảnh](link-đến-hình-ảnh)
+![Mô tả hình ảnh](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed)
