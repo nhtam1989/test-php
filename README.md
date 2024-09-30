@@ -69,8 +69,11 @@ CREATE TABLE `SearchResult`(
 
 ## Design an API between React and Laravel.
 
-First we will create a router in Laravel to receive HTTP Requests from Client ( Reactjs ).
-
+We need to validate the input like 
+```
+url : required
+Keywords: up to 5 keywords
+```
 
 ### API
 | HTTP Method | Endpoint      | Content-Type |
