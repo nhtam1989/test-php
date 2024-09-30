@@ -13,13 +13,7 @@
 ## Database Design
 We will design a database with 3 tables :
 
-**keywords**: Stores the URL and keywords entered by the user.
-    - `id`: Primary Key, Auto Increment.
-    - `url`: The domain URL entered by the user.
-    - `keywords`: List of keywords associated with the URL (max 5).
-    - `created_at`: Timestamp of when the keywords were added.
-    - `updated_at`: Timestamp of the last update.
-```
+```sql
 CREATE TABLE `Url`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `url` VARCHAR(255) NOT NULL,
