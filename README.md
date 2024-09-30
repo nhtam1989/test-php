@@ -67,9 +67,12 @@ CREATE TABLE `SearchResult`(
 
 --- 
 
-## API Endpoints
+## Design an API between React and Laravel.
 
-### API List
+First we will create a router in Laravel to receive HTTP Requests from Client ( Reactjs ).
+
+
+### API
 | HTTP Method | Endpoint      | Content-Type |
 |-------------|---------------|-------------|
 | POST        | /api/v1/search-ranking | Content-Type : application/json | 
