@@ -70,14 +70,13 @@ CREATE TABLE `SearchResult`(
 
 ## 2. Design an API between React and Laravel.
 
-
 ### API List
 | HTTP Method | Endpoint      | Content-Type |
 |-------------|---------------|-------------|
 | POST        | /api/v1/measurement-registration | Content-Type : application/json | 
 | GET         | /api/v1/measurement/results/{id} | 
 
-
+---
 ### API Measurement Registration
 | HTTP Method | Endpoint      | Content-Type |
 |-------------|---------------|-------------|
