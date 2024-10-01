@@ -153,6 +153,7 @@ We can use Redis for the API endpoint `/api/v1/measurement/results/{id}` to stor
 
 Since Redis stores data as key-value pairs and in memory, it is query performance is very fast, which improves the  user experience.
 
+---
 ## Assumptions
 
 ### 1. What if the domain is not registered or not active?
