@@ -147,8 +147,6 @@ Response
 
 ## 3. Please suggest one improvement to this system.
 
-I have a suggestion to improve the query speed of the API. 
-
-We can use Redis for the API endpoint `/api/v1/measurement/results/{id}` to store the information and set a storage duration of 10 minutes to reduce the load on the database as usage increases.
+We can use Redis for the API endpoint `/api/v1/measurement/results/{id}` to store information to reduce the load on the database as usage increases.
 
 Since Redis stores data as key-value pairs and in memory, it is query performance is very fast, which improves the  user experience.
