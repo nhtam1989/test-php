@@ -16,6 +16,7 @@ We will design a database with 3 tables :
 CREATE TABLE `Url`(
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `url` VARCHAR(255) NOT NULL,
+    `status` VARCHAR(20) NOT NULL DEFAULT 'processing' COMMENT 'processing | completed | failed',
     `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE `Keywords`(
@@ -29,7 +30,7 @@ CREATE TABLE `Keywords`(
 CREATE TABLE `SearchResult`(
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `keyword_id` INT NOT NULL,
-    `search_engine` VARCHAR(10) NOT NULL COMMENT 'Google/Yahoo',
+    `search_engine` VARCHAR(10) NOT NULL COMMENT 'Google | Yahoo',
     `rank` VARCHAR(100) NOT NULL DEFAULT 'out of rank',
     `search_results` BIGINT NOT NULL,
     `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -46,9 +47,10 @@ CREATE TABLE `SearchResult`(
 ### Example Database
 
 ### Url Table
-| id | url                      |  createdAt |
-|----|-------                   |-------------|
-| 1  | https://allgrow-labo.jp  | 2024-09-30 10:07:15 | 
+| id | url                      |  status     |  createdAt |
+|----|-------                   |-------------|-------------|
+| 1  | https://allgrow-labo.jp  | completed   | 2024-09-30 10:07:15 | 
+| 2  | https://demo.com         | processing  | 2024-09-30 10:07:15 | 
 
 ### Keywords Table
 | id | url_id | keyword   |  createdAt |
@@ -68,16 +70,25 @@ CREATE TABLE `SearchResult`(
 
 ## 2. Design an API between React and Laravel.
 
+
+### API List
+| HTTP Method | Endpoint      | Content-Type |
+|-------------|---------------|-------------|
+| POST        | /api/v1/measurement-registration | Content-Type : application/json | 
+| GET         | /api/v1/measurement/results/{id} | 
+
+
+### API Measurement Registration
+| HTTP Method | Endpoint      | Content-Type |
+|-------------|---------------|-------------|
+| POST        | /api/v1/measurement-registration | Content-Type : application/json | 
+
+
 We need to validate the input as below: 
 ```
 url : required
 Keywords: up to 5 keywords
 ```
-
-### API
-| HTTP Method | Endpoint      | Content-Type |
-|-------------|---------------|-------------|
-| POST        | /api/v1/search-ranking | Content-Type : application/json | 
 
 Request Body
 ```json
@@ -89,35 +100,55 @@ Request Body
 
 Response
 ```json
-
 {
-    "url": "https://allgrow-labo.jp",
-    "keywords": [
-        {
-            "keyword": "keyword 1",
-            "google": {
-                "rank": 1,
-                "search_results": 1000
-            },
-            "yahoo": {
-                "rank": 10,
-                "search_results": 100
-            },
-        },
-        {
-            "keyword": "keyword 2",
-            "google": {
-                "rank": 3,
-                "search_results": 300
-            },
-            "yahoo":{
-                "rank": " out of rank",
-                "search_results": 50
-            },
-        }
-    ]
+    "status": "ok",
+    "message": "Measurement information has been registered in the system.",
+    "data": {
+        "id": 1
+    }
 }
+```
 
+### API Get information measurement 
+| HTTP Method | Endpoint      |
+|-------------|---------------|
+| GET         | /api/v1/measurement/results/{id} |
+
+
+Response
+```json
+{
+    "status": "ok",
+    "data": {
+        "id": 1,
+        "url": "https://allgrow-labo.jp",
+        "status": "completed",
+        "keywords": [
+            {
+                "keyword": "keyword 1",
+                "google": {
+                    "rank": 1,
+                    "search_results": 1000
+                },
+                "yahoo": {
+                    "rank": 10,
+                    "search_results": 100
+                },
+            },
+            {
+                "keyword": "keyword 2",
+                "google": {
+                    "rank": 3,
+                    "search_results": 300
+                },
+                "yahoo":{
+                    "rank": " out of rank",
+                    "search_results": 50
+                },
+            }
+        ]
+    }
+}
 ```
 
 ## 3. Please suggest one improvement to this system.
