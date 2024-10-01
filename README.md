@@ -1,16 +1,15 @@
 # API Documentation for Keyword Ranking System
 
 ## Table of Contents
-1. [Database Design](#database-design)
-2. [ER Diagram](#er-diagram)
-3. [API Endpoints](#api-endpoints)
-    - [POST /api/keywords](#post-apikeywords)
-    - [GET /api/keywords/results](#get-apikeywordsresults)
-4. [API Workflow](#api-workflow)
+1. [Database Design](#1-database-design)
+    - [ER Diagram](#er-diagram)
+2. [Design an API between React and Laravel](#2-design-an-api-between-react-and-laravel)
+    - [POST /api/v1/search-ranking](#api)
+3. [Please suggest one improvement to this system](#3-please-suggest-one-improvement-to-this-system)
 
 ---
 
-## Database Design
+## 1. Database Design
 We will design a database with 3 tables :
 
 ```sql
@@ -67,7 +66,7 @@ CREATE TABLE `SearchResult`(
 
 --- 
 
-## Design an API between React and Laravel.
+## 2. Design an API between React and Laravel.
 
 We need to validate the input as below: 
 ```
@@ -120,9 +119,6 @@ Response
 }
 
 ```
-
-
-
 
 ## 3. Please suggest one improvement to this system.
 
