@@ -60,16 +60,16 @@ CREATE TABLE `SearchResult`(
 ### SearchResult Table
 | id | keyword_id | search_engine | rank        | search_results | createdAt |
 |----|-------     |-------------  |------       |-------------   |-------------|
-| 1  | 1          | Google        | 1           | 500            | 2024-09-30 10:07:15 | 
-| 2  | 1          | Yahoo         | 10          | 200            | 2024-09-30 10:07:15 | 
-| 3  | 2          | Google        | 6           | 300            | 2024-09-30 10:07:15 | 
-| 4  | 2          | Yahoo         | out of rank | 100            | 2024-09-30 10:07:15 | 
+| 1  | 1          | Google        | 1           | 1000            | 2024-09-30 10:07:15 | 
+| 2  | 1          | Yahoo         | 10          | 100            | 2024-09-30 10:07:15 | 
+| 3  | 2          | Google        | 3           | 300            | 2024-09-30 10:07:15 | 
+| 4  | 2          | Yahoo         | out of rank | 50            | 2024-09-30 10:07:15 | 
 
 --- 
 
 ## Design an API between React and Laravel.
 
-We need to validate the input as below 
+We need to validate the input as below: 
 ```
 url : required
 Keywords: up to 5 keywords
@@ -93,30 +93,41 @@ Response
 
 {
     "url": "https://allgrow-labo.jp",
-    "google": [
+    "keywords": [
         {
             "keyword": "keyword 1",
-            "rank": 1,
-            "search_results": 500,
+            "google": {
+                "rank": 1,
+                "search_results": 1000
+            },
+            "yahoo": {
+                "rank": 10,
+                "search_results": 100
+            },
         },
         {
             "keyword": "keyword 2",
-            "rank": 6,
-            "search_results": 300,
-        }
-    ],
-    "yahoo": [
-         {
-            "keyword": "keyword 1",
-            "rank": 1,
-            "search_results": 500,
-        },
-        {
-            "keyword": "keyword 2",
-            "rank": 6,
-            "search_results": 300,
+            "google": {
+                "rank": 3,
+                "search_results": 300
+            },
+            "yahoo":{
+                "rank": " out of rank",
+                "search_results": 50
+            },
         }
     ]
 }
 
 ```
+
+
+
+
+## 3. Please suggest one improvement to this system.
+
+I have a suggestion to improve the query speed of the API. 
+
+We can use Redis to store the information and set a storage duration of 10 minutes to reduce the load on the database as usage increases.
+
+Because Redis stores data as key-value pairs and in memory, query performance is very fast, improving user experience. 
