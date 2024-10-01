@@ -6,6 +6,7 @@
 2. [Design an API between React and Laravel](#2-design-an-api-between-react-and-laravel)
     - [POST /api/v1/search-ranking](#api)
 3. [Please suggest one improvement to this system](#3-please-suggest-one-improvement-to-this-system)
+4. [Assumptions](#assumptions)
 
 ---
 
