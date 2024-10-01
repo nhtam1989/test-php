@@ -43,11 +43,12 @@ CREATE TABLE `SearchResult`(
 
 ### Example Database
 
-### Url Table
+### MeasurementUrl Table
 | id | url                      |  status     |  createdAt |
 |----|-------                   |-------------|-------------|
 | 1  | https://allgrow-labo.jp  | completed   | 2024-09-30 10:07:15 | 
-| 2  | https://demo.com         | processing  | 2024-10-01 10:07:15 | 
+| 2  | https://google.com       | processing  | 2024-10-01 10:07:15 | 
+| 3  | https://demo.com         | failed      | 2024-10-01 10:07:15 | 
 
 ### Keywords Table
 | id | measurement_url_id | keyword   |  createdAt |
@@ -151,5 +152,5 @@ We can use Redis for the API endpoint `/api/v1/measurement/results/{id}` to stor
 
 Since Redis stores data as key-value pairs and in memory, it is query performance is very fast, which improves the  user experience.
 
-## The first assumption
-If the domain is not registered or not active, Google and Yahoo will not have any information. In this case, the `status` field in the Url table will is `failed`
+## First assumption
+If the domain is not registered or not active, Google and Yahoo will not have any information. In this case, the `status` field in the `MeasurementUrl` table will be `failed`
