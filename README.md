@@ -170,7 +170,7 @@ So, when call to the API endpoint `/api/v1/measurement/results/{id}` (for exampl
 }
 ```
 
-### 2. What if that domain is pending in queue?
+### 2. What if that `Url` is pending in queue?
 
 In this case, it's the same as above, but this time the `status` field will be marked as `processing`.
 
