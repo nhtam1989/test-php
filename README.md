@@ -40,7 +40,7 @@ CREATE TABLE `SearchResult`(
 ```
 
 ## ER Diagram
-![Wireframe Example](diagram_sql.png)
+![diagram sql](diagram_sql.png)
 
 ### Example Database
 
@@ -153,6 +153,7 @@ We can use Redis for the API endpoint `/api/v1/measurement/results/{id}` to stor
 
 Since Redis stores data as key-value pairs and in memory, it is query performance is very fast, which improves the  user experience.
 
+![diagram sql](diagram-with-redis.png)
 ---
 ## Assumptions
 
