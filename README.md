@@ -13,7 +13,7 @@
 We will design a database with 3 tables :
 
 ```sql
-CREATE TABLE `Url`(
+CREATE TABLE `MeasurementUrl`(
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `url` VARCHAR(255) NOT NULL,
     `status` VARCHAR(20) NOT NULL DEFAULT 'processing' COMMENT 'processing | completed | failed',
@@ -21,10 +21,10 @@ CREATE TABLE `Url`(
 );
 CREATE TABLE `Keywords`(
     `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `url_id` INT NOT NULL,
+    `measurement_url_id` INT NOT NULL,
     `keyword` VARCHAR(100) NOT NULL,
     `createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT `keywords_url_id_fk` FOREIGN KEY (`url_id`) REFERENCES `Url` (`id`)
+    CONSTRAINT `keywords_measurement_url_id_fk` FOREIGN KEY (`measurement_url_id`) REFERENCES `MeasurementUrl` (`id`)
 );
 
 CREATE TABLE `SearchResult`(
@@ -50,7 +50,7 @@ CREATE TABLE `SearchResult`(
 | 2  | https://demo.com         | processing  | 2024-10-01 10:07:15 | 
 
 ### Keywords Table
-| id | url_id | keyword   |  createdAt |
+| id | measurement_url_id | keyword   |  createdAt |
 |----|------- |---------  |-------------|
 | 1  | 1      | keyword 1 | 2024-09-30 10:07:15 | 
 | 2  | 1      | keyword 2 | 2024-09-30 10:07:15 | 
@@ -150,3 +150,6 @@ Response
 We can use Redis for the API endpoint `/api/v1/measurement/results/{id}` to store information to reduce the load on the database as usage increases.
 
 Since Redis stores data as key-value pairs and in memory, it is query performance is very fast, which improves the  user experience.
+
+## The first assumption
+If the domain is not registered or not active, Google and Yahoo will not have any information. In this case, the `status` field in the Url table will is `failed`
