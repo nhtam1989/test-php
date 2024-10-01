@@ -69,7 +69,7 @@ CREATE TABLE `SearchResult`(
 
 ## Design an API between React and Laravel.
 
-We need to validate the input like 
+We need to validate the input as below 
 ```
 url : required
 Keywords: up to 5 keywords
@@ -93,20 +93,28 @@ Response
 
 {
     "url": "https://allgrow-labo.jp",
-    "keywords": [
+    "google": [
         {
             "keyword": "keyword 1",
-            "google_rank": 1,
-            "google_results": 500,
-            "yahoo_rank": 10,
-            "yahoo_results": 200
+            "rank": 1,
+            "search_results": 500,
         },
         {
             "keyword": "keyword 2",
-            "google_rank": 6,
-            "google_results": 300,
-            "yahoo_rank": "out of rank",
-            "yahoo_results": 100
+            "rank": 6,
+            "search_results": 300,
+        }
+    ],
+    "yahoo": [
+         {
+            "keyword": "keyword 1",
+            "rank": 1,
+            "search_results": 500,
+        },
+        {
+            "keyword": "keyword 2",
+            "rank": 6,
+            "search_results": 300,
         }
     ]
 }
