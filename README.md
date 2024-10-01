@@ -39,10 +39,7 @@ CREATE TABLE `SearchResult`(
 ```
 
 ## ER Diagram
-
-<!-- [Nhấp vào đây để xem sơ đồ](https://drawsql.app/teams/local-25/diagrams/test-allgrowlabo/embed) -->
 ![Wireframe Example](diagram_sql.png)
-
 
 ### Example Database
 
@@ -50,7 +47,7 @@ CREATE TABLE `SearchResult`(
 | id | url                      |  status     |  createdAt |
 |----|-------                   |-------------|-------------|
 | 1  | https://allgrow-labo.jp  | completed   | 2024-09-30 10:07:15 | 
-| 2  | https://demo.com         | processing  | 2024-09-30 10:07:15 | 
+| 2  | https://demo.com         | processing  | 2024-10-01 10:07:15 | 
 
 ### Keywords Table
 | id | url_id | keyword   |  createdAt |
@@ -66,8 +63,6 @@ CREATE TABLE `SearchResult`(
 | 3  | 2          | Google        | 3           | 300            | 2024-09-30 10:07:15 | 
 | 4  | 2          | Yahoo         | out of rank | 50            | 2024-09-30 10:07:15 | 
 
---- 
-
 ## 2. Design an API between React and Laravel.
 
 ### API List
@@ -77,7 +72,7 @@ CREATE TABLE `SearchResult`(
 | GET         | /api/v1/measurement/results/{id} | 
 
 ---
-### API Measurement Registration
+### Measurement Registration API
 | HTTP Method | Endpoint      | Content-Type |
 |-------------|---------------|-------------|
 | POST        | /api/v1/measurement-registration | Content-Type : application/json | 
@@ -108,7 +103,7 @@ Response
 }
 ```
 
-### API Get information measurement 
+### Get Measurement Information API
 | HTTP Method | Endpoint      |
 |-------------|---------------|
 | GET         | /api/v1/measurement/results/{id} |
