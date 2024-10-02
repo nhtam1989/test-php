@@ -49,13 +49,17 @@ CREATE TABLE `SearchResult`(
 |----|-------                   |-------------|-------------|
 | 1  | https://allgrow-labo.jp  | completed   | 2024-09-30 10:07:15 | 
 | 2  | https://google.com       | processing  | 2024-10-01 10:07:15 | 
-| 3  | https://demo.com         | failed      | 2024-10-01 10:07:15 | 
+| 3  | https://demo.com         | failed      | 2024-10-02 10:07:15 | 
 
 ### Keywords Table
 | id | measurement_url_id | keyword   |  createdAt |
 |----|------- |---------  |-------------|
 | 1  | 1      | keyword 1 | 2024-09-30 10:07:15 | 
 | 2  | 1      | keyword 2 | 2024-09-30 10:07:15 | 
+| 3  | 2      | keyword google 1 | 2024-10-01 10:07:15 | 
+| 4  | 2      | keyword google 2 | 2024-10-01 10:07:15 | 
+| 5  | 3      | keyword demo 1 | 2024-10-02 10:07:15 | 
+| 6  | 3      | keyword demo 2 | 2024-10-02 10:07:15 | 
 
 ### SearchResult Table
 | id | keyword_id | search_engine | rank        | search_results | createdAt |
@@ -168,7 +172,14 @@ So, when call to the API endpoint `/api/v1/measurement/results/{id}` (for exampl
         "id": 3,
         "url": "https://demo.com",
         "status": "failed",
-        "keywords": []
+        "keywords": [ 
+            {
+                "keyword": "keyword demo 1",
+            },
+            {
+                "keyword": "keyword demo 2",
+            }
+        ]
     }
 }
 ```
@@ -185,7 +196,14 @@ So, this time it will be :
         "id": 2,
         "url": "https://google.com",
         "status": "processing",
-        "keywords": []
+        "keywords": [ 
+            {
+                "keyword": "keyword google 1",
+            },
+            {
+                "keyword": "keyword google 2",
+            }
+        ]
     }
 }
 ```
